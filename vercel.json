@@ -1,6 +1,3 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/src/pages/index.html" },
-    { "source": "/doar", "destination": "/src/pages/doar.html" }
-  ]
+  "cleanUrls": true
 }
