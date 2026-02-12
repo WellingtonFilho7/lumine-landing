@@ -1,0 +1,74 @@
+/* ============================================
+   Design Tokens — Instituto Lumine
+   Extraídos da identidade visual do brasão.
+   ============================================ */
+
+:root {
+  /* === Primárias (do logo) === */
+  --navy:        #0D3B66;
+  --blue:        #2E7AB8;
+  --gold:        #F5A623;
+  --gold-light:  #F8C565;
+
+  /* === Neutros === */
+  --white:       #FFFFFF;
+  --off-white:   #F9F7F4;
+  --warm-gray:   #E8E4DF;
+  --mid-gray:    #6B6058;
+  --dark-gray:   #3D3632;
+  --black:       #1A1613;
+
+  /* === Fundos de seção (alternância de ritmo) === */
+  --bg-light:    var(--off-white);
+  --bg-white:    var(--white);
+  --bg-navy:     var(--navy);
+  --bg-warm:     #F3EDE6;
+
+  /* === Estados === */
+  --focus-ring:  var(--blue);
+  --hover-gold:  var(--gold-light);
+  --border:      var(--warm-gray);
+
+  /* === Tipografia — Escala (Major Third ~1.25) === */
+  --font-serif:  'Literata', Georgia, 'Times New Roman', serif;
+  --font-sans:   'Poppins', 'Segoe UI', Roboto, sans-serif;
+  --font-mono:   'JetBrains Mono', 'Courier New', monospace;
+
+  --text-xs:     0.85rem;
+  --text-sm:     0.95rem;
+  --text-base:   1.125rem;
+  --text-md:     1.35rem;
+  --text-lg:     1.65rem;
+  --text-xl:     2rem;
+  --text-2xl:    2.5rem;
+  --text-3xl:    3.25rem;
+  --text-4xl:    4.25rem;
+  --text-5xl:    5.5rem;
+
+  --leading-tight:   1.2;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.75;
+
+  --measure:     65ch;
+
+  /* === Espaçamento === */
+  --space-xs:    0.5rem;
+  --space-sm:    1rem;
+  --space-md:    1.5rem;
+  --space-lg:    2.5rem;
+  --space-xl:    4rem;
+  --space-2xl:   6rem;
+  --space-3xl:   8rem;
+
+  --section-padding-y:  var(--space-2xl);
+  --container-max:      72rem;
+  --container-narrow:   48rem;
+  --container-wide:     84rem;
+  --container-padding:  var(--space-md);
+
+  /* === Sombras e Bordas === */
+  --shadow-sm:     0 1px 3px rgba(13, 59, 102, 0.06);
+  --shadow-md:     0 4px 12px rgba(13, 59, 102, 0.08);
+  --border-thin:   1px solid var(--warm-gray);
+  --border-radius: 4px;
+}

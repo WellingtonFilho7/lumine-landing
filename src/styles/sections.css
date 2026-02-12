@@ -1,0 +1,1241 @@
+/* ============================================
+   Estilos por Seção — Instituto Lumine
+   Cativante, impressionante, memorável.
+   ============================================ */
+
+/* =============================================
+   DECORATIVE UTILITIES (reduzido)
+   ============================================= */
+
+/* Gold accent bar above labels */
+.section-header .label {
+  display: inline-block;
+  color: var(--gold);
+  margin-bottom: var(--space-sm);
+}
+
+.bg-navy .section-header .label {
+  color: var(--gold-light);
+}
+
+/* =============================================
+   KEYFRAME ANIMATIONS
+   ============================================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.25; }
+}
+
+
+/* =============================================
+   00 — NAVBAR / SITE HEADER
+   Transparent over hero, white + shadow on scroll.
+   ============================================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  padding-block: var(--space-sm);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo: two versions, toggle with .scrolled */
+.site-nav-logo {
+  text-decoration: none;
+  display: block;
+  height: 52px;
+}
+
+.site-nav-logo img {
+  height: 52px;
+  width: auto;
+}
+
+.nav-logo-dark {
+  display: none;
+}
+
+/* When scrolled: show dark logo, hide light */
+.site-header.scrolled .nav-logo-light {
+  display: none;
+}
+
+.site-header.scrolled .nav-logo-dark {
+  display: block;
+}
+
+/* Links container */
+.site-nav-links {
+  display: none;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.site-nav-links a:not(.btn) {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.site-nav-links a:not(.btn):hover {
+  color: var(--white);
+}
+
+/* Scrolled state: dark links */
+.site-header.scrolled .site-nav-links a:not(.btn) {
+  color: var(--dark-gray);
+}
+
+.site-header.scrolled .site-nav-links a:not(.btn):hover {
+  color: var(--navy);
+}
+
+/* CTA in nav */
+.btn-nav-cta {
+  font-size: var(--text-xs) !important;
+  padding: 0.5rem 1.25rem !important;
+  font-weight: 700;
+}
+
+/* Scrolled state for header */
+.site-header.scrolled {
+  background-color: var(--white);
+  box-shadow: 0 1px 4px rgba(13, 59, 102, 0.06);
+}
+
+/* --- Hamburger toggle (mobile) --- */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 210;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 1px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.site-header.scrolled .nav-toggle-bar {
+  background-color: var(--dark-gray);
+}
+
+/* Open state: X */
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- Mobile menu open --- */
+.site-nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--navy);
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-lg);
+  z-index: 205;
+}
+
+.site-nav-links.open a:not(.btn) {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--text-lg);
+}
+
+.site-nav-links.open a:not(.btn):hover {
+  color: var(--white);
+}
+
+.site-nav-links.open .btn-nav-cta {
+  font-size: var(--text-sm) !important;
+  padding: 0.75rem 2rem !important;
+  margin-top: var(--space-sm);
+}
+
+/* --- Desktop: show links inline, hide hamburger --- */
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav-links {
+    display: flex;
+  }
+
+  .site-nav-links.open {
+    position: static;
+    flex-direction: row;
+    background: none;
+  }
+}
+
+/* =============================================
+   01 — HERO  ·  "O Brasão Monumental"
+   O emblema ocupa o centro como peça heráldica.
+   Tudo orbita ao redor dele. Silêncio. Confiança.
+   ============================================= */
+
+/* --- Hero keyframes --- */
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroScale {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heroLineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes heroPulse {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+
+/* --- Hero shell --- */
+
+.section-hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: var(--space-xl) var(--space-lg);
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+/* Single radial golden glow — centered behind the crest */
+.section-hero::before {
+  content: "";
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(245, 166, 35, 0.12) 0%,
+    rgba(245, 166, 35, 0.04) 35%,
+    transparent 65%
+  );
+  pointer-events: none;
+  animation: heroPulse 6s ease-in-out infinite;
+}
+
+@media (min-width: 1024px) {
+  .section-hero::before {
+    width: 1000px;
+    height: 1000px;
+  }
+}
+
+/* --- Content stack --- */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 38rem;
+  padding-inline: var(--container-padding);
+}
+
+/* --- Emblema: protagonista --- */
+
+.hero-emblema {
+  margin-bottom: var(--space-sm);
+  animation: heroScale 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-emblema img {
+  width: 260px;
+  height: 260px;
+  filter:
+    drop-shadow(0 0 60px rgba(245, 166, 35, 0.2))
+    drop-shadow(0 0 120px rgba(245, 166, 35, 0.07));
+}
+
+@media (min-width: 640px) {
+  .hero-emblema img {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-emblema img {
+    width: 400px;
+    height: 400px;
+    filter:
+      drop-shadow(0 0 80px rgba(245, 166, 35, 0.22))
+      drop-shadow(0 0 150px rgba(245, 166, 35, 0.08));
+  }
+}
+
+/* --- Wordmark (PNG da fonte proprietária) --- */
+
+/* O PNG do wordmark é quadrado (4500x4500) com ~22% de padding interno.
+   Container com overflow hidden + object-fit recorta o espaço vazio. */
+.hero-wordmark {
+  width: 190px;
+  height: 105px;
+  overflow: hidden;
+  margin-inline: auto;
+  margin-bottom: var(--space-sm);
+  animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.hero-wordmark img {
+  width: 100%;
+  height: auto;
+  /* Desloca para cima para "recortar" o padding superior do PNG */
+  margin-top: -22%;
+  opacity: 0.92;
+}
+
+@media (min-width: 640px) {
+  .hero-wordmark {
+    width: 240px;
+    height: 132px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-wordmark {
+    width: 290px;
+    height: 160px;
+  }
+}
+
+/* --- Subtítulo — Literata itálico, elegante --- */
+
+.hero-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--text-md);
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 32ch;
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-xs);
+  animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle {
+    font-size: var(--text-lg);
+  }
+}
+
+/* --- Data / meta --- */
+
+.hero-meta {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+
+/* --- Linha dourada separadora --- */
+
+.hero-divider {
+  width: 3rem;
+  height: 1px;
+  margin-block: var(--space-md);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 166, 35, 0.45) 25%,
+    var(--gold) 50%,
+    rgba(245, 166, 35, 0.45) 75%,
+    transparent
+  );
+  animation: heroLineGrow 0.8s ease 0.6s both;
+}
+
+/* --- CTAs --- */
+
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: center;
+  animation: heroReveal 0.8s ease 0.7s both;
+}
+
+@media (min-width: 480px) {
+  .hero-cta {
+    flex-direction: row;
+    gap: var(--space-md);
+  }
+}
+
+/* Button overrides dentro do hero */
+
+.section-hero .btn-primary {
+  background-color: var(--gold);
+  color: var(--black);
+  font-weight: 600;
+  box-shadow: 0 2px 12px rgba(245, 166, 35, 0.25);
+  border: none;
+}
+
+.section-hero .btn-primary:hover {
+  background-color: var(--gold-light);
+  box-shadow: 0 4px 24px rgba(245, 166, 35, 0.35);
+  transform: translateY(-2px);
+}
+
+.section-hero .btn-secondary {
+  color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+  font-weight: 500;
+}
+
+.section-hero .btn-secondary:hover {
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* =============================================
+   02 — ONDE O LUMINE NASCE
+   "Quiet Authority" — editorial warmth.
+   First paragraph is a lead. Second is a pull-quote feel.
+   ============================================= */
+
+.section-onde-nasce {
+  padding-block: var(--space-3xl) var(--space-2xl);
+}
+
+.section-onde-nasce .container-narrow {
+  position: relative;
+}
+
+.section-onde-nasce p {
+  color: var(--dark-gray);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-base);
+}
+
+/* First paragraph — editorial lead, larger and lighter */
+.section-onde-nasce .container-narrow > p:first-of-type {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  color: var(--dark-gray);
+  line-height: 1.7;
+  max-width: 50ch;
+}
+
+/* Second paragraph — grounded, personal. Gold left accent. */
+.section-onde-nasce .container-narrow > p:nth-of-type(2) {
+  position: relative;
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--gold);
+  color: var(--mid-gray);
+  font-size: var(--text-base);
+  max-width: 55ch;
+}
+
+/* =============================================
+   03 — O QUE É O INSTITUTO LUMINE
+   Differentiated from S2: the "gratuito" message
+   gets a highlight block treatment.
+   ============================================= */
+
+.section-o-que-e {
+  padding-block: var(--space-xl) var(--space-2xl);
+  position: relative;
+}
+
+.section-o-que-e p {
+  max-width: var(--measure);
+  margin-bottom: var(--space-md);
+  line-height: var(--leading-relaxed);
+}
+
+/* "O projeto é gratuito..." — the single most important sentence.
+   Treated as a callout block, not just bold text. */
+.section-o-que-e p:last-child {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--text-md);
+  color: var(--navy);
+  background-color: var(--off-white);
+  padding: var(--space-md) var(--space-lg);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 2px 2px 0;
+  margin-top: var(--space-lg);
+  max-width: 55ch;
+}
+
+/* =============================================
+   04 — COMO FUNCIONA O PILOTO
+   Steps feel like a plan, not a grocery list.
+   Numbers are larger and more present.
+   ============================================= */
+
+.section-como-funciona {
+  padding-block: var(--space-xl) var(--space-2xl);
+}
+
+.section-como-funciona h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  color: var(--navy);
+}
+
+.section-como-funciona ul {
+  list-style: none;
+  padding-left: 0;
+  max-width: var(--measure);
+  counter-reset: step;
+}
+
+.section-como-funciona ul li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+  line-height: var(--leading-relaxed);
+  counter-increment: step;
+  color: var(--dark-gray);
+}
+
+/* Large serif numbers — more weight, more presence */
+.section-como-funciona ul li::before {
+  content: counter(step, decimal-leading-zero);
+  flex-shrink: 0;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+/* Thin separator between steps */
+.section-como-funciona ul li + li {
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--warm-gray);
+}
+
+.section-como-funciona > .container > p:last-child {
+  margin-top: var(--space-xl);
+  color: var(--mid-gray);
+  font-size: var(--text-sm);
+  font-style: italic;
+}
+
+/* =============================================
+   05 — POR QUE PRECISAMOS DE APOIO
+   Dramatic pause. Emotional crescendo.
+   More vertical space. The ask PUNCHES.
+   ============================================= */
+
+.section-por-que-apoiar {
+  padding-block: var(--space-2xl);
+  position: relative;
+  background: var(--navy);
+}
+
+.section-por-que-apoiar .container-narrow {
+  position: relative;
+}
+
+.section-por-que-apoiar p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-base);
+}
+
+/* First paragraph — context, slightly larger */
+.section-por-que-apoiar .section-header + p {
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+}
+
+/* The financial ask — the PUNCH. Larger, bolder, gold border. */
+.section-por-que-apoiar p:nth-child(3) {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--white);
+  font-weight: 400;
+  line-height: 1.6;
+  position: relative;
+  padding-left: var(--space-lg);
+  border-left: 3px solid var(--gold);
+  margin-block: var(--space-xl);
+  max-width: 50ch;
+}
+
+/* Volunteer line — emphasis */
+.section-por-que-apoiar p:nth-child(4) {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Last paragraph — quiet exit */
+.section-por-que-apoiar .container-narrow > p:last-child {
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: var(--space-xl);
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+/* =============================================
+   06 — META DE FINANCIAMENTO
+   THE conversion section. Number is monumental.
+   Progress bar feels alive. CTA is urgent.
+   ============================================= */
+
+.section-meta {
+  padding-block: var(--space-2xl);
+  position: relative;
+}
+
+.meta-valor {
+  margin-bottom: var(--space-xl);
+  padding: var(--space-xl) var(--space-md);
+  position: relative;
+}
+
+/* Clean frame — thinner, just a whisper */
+.meta-valor::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 22rem);
+  height: 100%;
+  border: 1px solid var(--warm-gray);
+  border-radius: 1px;
+}
+
+/* THE number — monumental */
+.valor-destaque {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--text-4xl);
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-md);
+  max-width: none;
+  position: relative;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .valor-destaque {
+    font-size: 5rem;
+    letter-spacing: -0.04em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .valor-destaque {
+    font-size: 5.5rem;
+  }
+}
+
+/* Progress bar — substantial, warm */
+.progress-bar {
+  width: 100%;
+  max-width: 18rem;
+  height: 8px;
+  background-color: var(--warm-gray);
+  border-radius: 4px;
+  margin-inline: auto;
+  margin-bottom: var(--space-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 4px;
+  transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+}
+
+/* Subtle glow at the tip — hidden when 0% */
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -3px;
+  width: 6px;
+  height: calc(100% + 6px);
+  background: var(--gold-light);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--gold), 0 0 12px rgba(245, 166, 35, 0.25);
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+.progress-fill[data-target="0"]::after {
+  display: none;
+}
+
+.section-meta .meta {
+  color: var(--mid-gray);
+  font-size: var(--text-sm);
+}
+
+.section-meta p:not(.valor-destaque):not(.meta):not(.label) {
+  max-width: 48ch;
+  margin-inline: auto;
+  color: var(--dark-gray);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+}
+
+.section-meta .cta-group {
+  margin-top: var(--space-xl);
+}
+
+/* Larger CTA in this section — the primary conversion point */
+.section-meta .btn-primary {
+  font-size: var(--text-md);
+  padding: 1.125rem 3rem;
+}
+
+/* =============================================
+   07 — APOIO RECORRENTE
+   Cards connect value to impact.
+   ============================================= */
+
+.section-apoio-recorrente {
+  padding-block: var(--space-xl) var(--space-2xl);
+}
+
+.section-apoio-recorrente > .container-narrow > p {
+  max-width: var(--measure);
+  margin-inline: auto;
+  line-height: var(--leading-relaxed);
+}
+
+.valores-sugeridos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-block: var(--space-xl);
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.valor-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: var(--space-lg) var(--space-md);
+  border: 1px solid var(--warm-gray);
+  border-radius: 2px;
+  text-align: left;
+  background-color: var(--white);
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.valor-badge:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 20px rgba(245, 166, 35, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Gold left accent — like a bookmark */
+.valor-badge::before {
+  content: "";
+  position: absolute;
+  top: var(--space-md);
+  bottom: var(--space-md);
+  left: 0;
+  width: 3px;
+  background: var(--gold);
+  border-radius: 0 2px 2px 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.valor-badge:hover::before {
+  opacity: 1;
+}
+
+.valor-badge strong {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.valor-badge span {
+  font-size: var(--text-sm);
+  color: var(--mid-gray);
+  line-height: var(--leading-normal);
+}
+
+@media (min-width: 640px) {
+  .valores-sugeridos {
+    flex-direction: row;
+  }
+
+  .valor-badge {
+    flex: 1;
+  }
+}
+
+.section-apoio-recorrente .meta {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--mid-gray);
+}
+
+/* =============================================
+   08 — NOSSO COMPROMISSO
+   A PLEDGE — solemn, numbered, structured.
+   Not a text dump.
+   ============================================= */
+
+.section-compromisso {
+  padding-block: var(--space-2xl);
+  position: relative;
+}
+
+.section-compromisso .container-narrow {
+  text-align: center;
+}
+
+.section-compromisso .section-header {
+  margin-bottom: var(--space-xl);
+}
+
+/* Numbered commitments list */
+.compromisso-lista {
+  list-style: none;
+  padding-left: 0;
+  max-width: 50ch;
+  margin-inline: auto;
+  counter-reset: compromisso;
+  text-align: left;
+}
+
+.compromisso-lista li {
+  position: relative;
+  padding-left: 3.5rem;
+  padding-top: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  line-height: var(--leading-relaxed);
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--dark-gray);
+  counter-increment: compromisso;
+}
+
+/* Large serif number */
+.compromisso-lista li::before {
+  content: counter(compromisso);
+  position: absolute;
+  left: 0;
+  top: var(--space-lg);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* Gold separator between items */
+.compromisso-lista li + li {
+  border-top: 1px solid var(--warm-gray);
+}
+
+/* First item — no extra top padding for separator */
+.compromisso-lista li:first-child {
+  padding-top: 0;
+}
+
+.compromisso-lista li:first-child::before {
+  top: 0;
+}
+
+/* Last commitment — italic serif, the personal one */
+.compromisso-lista li:last-child {
+  margin-bottom: 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: var(--text-md);
+  color: var(--navy);
+}
+
+/* =============================================
+   09 — FAQ
+   Clean accordion. Refined details.
+   ============================================= */
+
+.section-faq {
+  padding-block: var(--space-xl) var(--space-2xl);
+}
+
+.faq-list {
+  max-width: var(--container-narrow);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--warm-gray);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--warm-gray);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: var(--space-md) 0;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-base);
+  color: var(--dark-gray);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s ease;
+}
+
+.faq-item summary:hover {
+  color: var(--navy);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron */
+.faq-item summary::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-right: 1.5px solid var(--mid-gray);
+  border-bottom: 1.5px solid var(--mid-gray);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  flex-shrink: 0;
+  margin-top: -3px;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(-135deg);
+  margin-top: 3px;
+  border-color: var(--gold);
+}
+
+.faq-item[open] summary {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.faq-item p {
+  padding-bottom: var(--space-md);
+  padding-right: var(--space-lg);
+  color: var(--mid-gray);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure);
+  font-size: var(--text-sm);
+}
+
+/* =============================================
+   10 — CONTATO
+   Clean, minimal. Warm navy.
+   ============================================= */
+
+.section-contato {
+  padding-block: var(--space-2xl);
+  position: relative;
+  background: var(--navy);
+}
+
+.section-contato > .container-narrow > p {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 42ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-xl);
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.contato-canais {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .contato-canais {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-2xl);
+  }
+
+  .contato-canais .contato-item:first-child {
+    padding-right: var(--space-2xl);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+.contato-item {
+  text-align: center;
+}
+
+.contato-item h4 {
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-xs);
+}
+
+.contato-item a {
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: 400;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 2px;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.contato-item a:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+.section-contato .meta {
+  color: rgba(255, 255, 255, 0.35);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* =============================================
+   11 — RODAPÉ
+   Minimal. Dark. Institutional.
+   ============================================= */
+
+.section-rodape {
+  padding-block: var(--space-xl) var(--space-md);
+  background-color: #0A2E52;
+  color: var(--white);
+}
+
+/* Wordmark in footer — same square PNG crop trick */
+.rodape-logo {
+  width: 140px;
+  height: 78px;
+  overflow: hidden;
+  margin-bottom: var(--space-xs);
+  opacity: 0.7;
+}
+
+.rodape-logo img {
+  width: 100%;
+  height: auto;
+  margin-top: -22%;
+}
+
+.rodape-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
+  text-align: center;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .rodape-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.rodape-info p {
+  max-width: none;
+  margin-bottom: 0.25rem;
+}
+
+.rodape-info strong {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.rodape-info .meta {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: var(--text-xs);
+}
+
+.rodape-links {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.rodape-links a {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.rodape-links a:hover {
+  color: var(--gold-light);
+}
+
+.rodape-copy {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: var(--text-xs);
+  max-width: none;
+  letter-spacing: 0.02em;
+}
+
+/* (Página /doar removida — redirecionada para Benfeitoria) */
+
+/* =============================================
+   BOTÃO FLUTUANTE "DOAR"
+   Aparece após o hero sumir da viewport.
+   ============================================= */
+
+a.floating-doar.btn {
+  position: fixed !important;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  z-index: 90;
+  opacity: 0;
+  transform: translateY(1rem);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease !important;
+  box-shadow: 0 4px 20px rgba(245, 166, 35, 0.3);
+  font-size: var(--text-sm);
+  padding: 0.75rem 1.75rem;
+}
+
+a.floating-doar.btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+a.floating-doar.btn:hover {
+  box-shadow: 0 6px 28px rgba(245, 166, 35, 0.4);
+  transform: translateY(-2px);
+}
+

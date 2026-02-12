@@ -1,0 +1,30 @@
+/* ============================================
+   Utilitários pontuais
+   ============================================ */
+
+/* Screen-reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Alinhamento */
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+
+/* Centralizar filhos */
+.mx-auto { margin-inline: auto; }
+
+/* Monospace (chave PIX) */
+.font-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  word-break: break-all;
+}
